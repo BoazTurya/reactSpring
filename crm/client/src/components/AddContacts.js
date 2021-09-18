@@ -11,14 +11,13 @@ export default class AddContacts extends Component{
             email: this.refs.email.value,
         }
 
-        fetch("https://localhost:8080/api/contacts", {
+        fetch('http://localhost:8080/api/contacts', {
             method: "POST",
             headers: {
-                "content-type": "application/json"
+                "content-type":"application/json"
             },
-            body: JSON.stringify(contact), })
-            
-        .then(response => response.json());
+            body: JSON.stringify(contact), 
+        }).then(response => response.json());
         window.location.reload();
     }
 
@@ -28,11 +27,11 @@ export default class AddContacts extends Component{
                 <form className="col s12" onSubmit = {this.submitContact.bind(this)}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input placeholder="Placeholder" ref="firstName" type="text" className="validate"/>
+                            <input placeholder="fname" ref="firstName" type="text" className="validate"/>
                             <label htmlFor="firstName">First Name</label>
                         </div>
                         <div className="input-field col s6">
-                            <input ref="lastName" type="text" className="validate"/>
+                            <input placeholder="lname"   ref="lastName" type="text" className="validate"/>
                             <label htmlFor="lastName">Last Name</label>
                         </div>
                     </div>
@@ -41,6 +40,9 @@ export default class AddContacts extends Component{
                             <input ref="email" type="email" className="validate"/>
                             <label htmlFor="email">Email</label>
                         </div>
+                    </div>
+                    <div className = "row">
+                        <button className = "waves-effect waves-light btn" type = "submit" name="action">Submit Contact</button>
                     </div>
                 </form>
             </div>

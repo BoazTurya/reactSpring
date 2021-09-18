@@ -1,30 +1,29 @@
 import React, {Component} from 'react';
-import SingleContact from '/SingleContact';
 import AddContacts from './AddContacts';
+import SingleContact from './SingleContact';
 
 export default class Contacts extends Component{
     constructor(props){
         super(props);
         this.state = {
-            contacts:[]
+            contacts: [],
         };
     }
     componentDidMount(){
-        fetch('https://localhost:8080/api/contacts')
-        .then(response => response.json)
+        fetch('http://localhost:8080/api/contacts')
+        .then(response => response.json())
         .then(data => this.setState({contacts: data}))
     }
     render(){
         return (
             <div>
-                <div className='row'>
+                <div className = "row">
                     <AddContacts/>
                 </div>
                 <div className = "row">
-                    {this.state.contacts.map((item)=> (
+                    {this.state.contacts.map((item)=>(
                         <SingleContact key={item.id} item={item} />
                     ))}
-                    <SingleContact/>
                 </div>
             </div>
         )

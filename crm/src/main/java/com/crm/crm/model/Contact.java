@@ -9,15 +9,16 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-@NoArgsConstructor
+
 public class Contact {
     @Id
     @GeneratedValue
     private Long id;
+    public Contact(){}
 
-    private String firstName;
-    private String lastName;
-    private String email;
+    public String firstName;
+    public String lastName;
+    public String email;
 
     public Contact(String firstName, String lastName, String email) {
         this.firstName = firstName;

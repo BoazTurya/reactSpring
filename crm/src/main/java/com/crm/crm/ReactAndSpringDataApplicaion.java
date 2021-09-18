@@ -1,4 +1,4 @@
-package com.crm.crm.model;
+package com.crm.crm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
